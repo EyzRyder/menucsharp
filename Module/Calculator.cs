@@ -27,7 +27,6 @@ namespace menucsharp.Module
             int result = x + y;
 
             Console.WriteLine($"{x} + {y} = {result}");
-            Console.Read();
         }
         public static void sub()
         {
@@ -39,7 +38,6 @@ namespace menucsharp.Module
             int result = x - y;
 
             Console.WriteLine($"{x} - {y} = {result}");
-            Console.Read();
         }
         public static void mult()
         {
@@ -51,7 +49,6 @@ namespace menucsharp.Module
             int result = x * y;
 
             Console.WriteLine($"{x} x {y} = {result}");
-            Console.Read();
         }
         public static void divid()
         {
@@ -63,7 +60,6 @@ namespace menucsharp.Module
             int result = x / y;
 
             Console.WriteLine($"{x} / {y} = {result}");
-            Console.Read();
         }
     }
 }
