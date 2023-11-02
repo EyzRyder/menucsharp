@@ -50,7 +50,6 @@ while (showMenu)
       newStudent.Age = 18;
       Console.WriteLine(newStudent.FullName);
       cursoDio.AddStudent(newStudent);
-      Console.Read();
       break;
     case "6":
       Console.WriteLine("Escreva nome do estudante:");
@@ -65,7 +64,6 @@ while (showMenu)
       break;
     case "7":
       cursoDio.ListingStudents();
-      Console.Read();
       break;
     case "8":
       try
@@ -90,7 +88,7 @@ while (showMenu)
       }
       finally
       {
-        Console.Read();
+            Console.WriteLine("end of search");
       }
       break;
     case "0":
@@ -102,4 +100,6 @@ while (showMenu)
       Console.WriteLine("Invalid inputs");
       break;
   }
+    Console.WriteLine("Pressione uma tecla para continuar");
+  Console.ReadLine();
 }
