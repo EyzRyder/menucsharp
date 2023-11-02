@@ -26,14 +26,14 @@ namespace menucsharp.Module
             return Students.Remove(student);
         }
 
-        public void ListingStudents (){
+        public void ListingStudents()
+        {
             Console.WriteLine($"Alunos do curso de : {Name}");
 
-            for (int i = 0; i >= Students.Count; i++)
+            for (int i = 0; i <= (Students.Count-1); i++)
             {
-                Console.WriteLine($"N {i+1} - {Students[i].FullName}");
+                Console.WriteLine($"N {i + 1} - {Students[i].FullName}");
             }
-
         }
     }
 }
