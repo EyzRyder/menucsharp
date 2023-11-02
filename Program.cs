@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Globalization;
 using menucsharp.Module;
 
 string studentName, studentLastName;
@@ -11,15 +12,18 @@ cursoDio.Students = new List<Person>();
 while (showMenu)
 {
   Console.Clear();
-  Console.WriteLine("Digite a sua opção: ");
-  Console.WriteLine("1 - Somar");
-  Console.WriteLine("2 - Subtrair");
-  Console.WriteLine("3 - Dividir");
-  Console.WriteLine("4 - Multiplicar");
-  Console.WriteLine("5 - Adicionar Estudante");
-  Console.WriteLine("6 - Remover Estudante");
-  Console.WriteLine("7 - Listar Estudante");
-  Console.WriteLine("0 - Sair");
+  Console.WriteLine("################################");
+  Console.WriteLine("# Digite a sua opção:          #");
+  Console.WriteLine("# 1 - Somar                    #");
+  Console.WriteLine("# 2 - Subtrair                 #");
+  Console.WriteLine("# 3 - Dividir                  #");
+  Console.WriteLine("# 4 - Multiplicar              #");
+  Console.WriteLine("# 5 - Adicionar Estudante      #");
+  Console.WriteLine("# 6 - Remover Estudante        #");
+  Console.WriteLine("# 7 - Listar Estudante         #");
+  Console.WriteLine("# 8 - Ler Arquivo Surpresa     #");
+  Console.WriteLine("# 0 - Sair                     #");
+  Console.WriteLine("################################");
 
   select = Console.ReadLine();
 
@@ -45,7 +49,6 @@ while (showMenu)
       Person newStudent = new Person(name: studentName, lastName: studentLastName);
       newStudent.Age = 18;
       Console.WriteLine(newStudent.FullName);
-
       cursoDio.AddStudent(newStudent);
       Console.Read();
       break;
@@ -63,6 +66,32 @@ while (showMenu)
     case "7":
       cursoDio.ListingStudents();
       Console.Read();
+      break;
+    case "8":
+      try
+      {
+        string[] rows = File.ReadAllLines("Arquivo/text.txt");
+        foreach (string row in rows)
+        {
+          Console.WriteLine(row);
+        }
+      }
+      catch (FileNotFoundException ex)
+      {
+        Console.WriteLine($"Ocorreu um erro na leitura do arquivo. Arquivo nao encontrado. {ex.Message}");
+      }
+      catch (DirectoryNotFoundException ex)
+      {
+        Console.WriteLine($"Ocorreu um erro na leitura do arquivo. Pasta nao encontrado. {ex.Message}");
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine($"Ocorreu uma exceção genérica. {ex.Message}");
+      }
+      finally
+      {
+        Console.Read();
+      }
       break;
     case "0":
       Console.WriteLine("Encerrar");
